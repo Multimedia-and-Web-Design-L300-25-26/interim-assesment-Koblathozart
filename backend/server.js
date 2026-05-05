@@ -15,26 +15,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
+
 // CORS configuration
 app.use(cors({
-  origin: function(origin, callback) {
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'http://localhost:5174',
-      'http://localhost:5175',
-      process.env.CORS_ORIGIN // This will be the Netlify frontend URL
-    ]
-    
-    // Allow requests with no origin (mobile apps or curl requests)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
-  credentials: true // Allow cookies to be sent
+  origin: "https://koblathozart-crypto-app-public.netlify.app",
+  credentials: true
 }))
-
 // Connect to MongoDB
 await connectDB()
 

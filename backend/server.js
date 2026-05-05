@@ -21,7 +21,8 @@ app.use(cors({
     const allowedOrigins = [
       'http://localhost:5173',
       'http://localhost:5174',
-      'http://localhost:5175'
+      'http://localhost:5175',
+      process.env.CORS_ORIGIN // This will be the Netlify frontend URL
     ]
     
     // Allow requests with no origin (mobile apps or curl requests)
